@@ -4,11 +4,6 @@ ABAP Classes to create GeoJSON strings according to [RFC 7946](https://tools.iet
 ## Installation
 Import Source with [abapGit](https://github.com/larshp/abapGit)
 
-## Required Packages
-Needs [JSON Document Class](https://github.com/se38/zjson) with at least version 2.33
-```
-write:/ zcl_json_document=>get_version( ).
-```
 ## Usage
 This example will create a simple point object:
 ```
