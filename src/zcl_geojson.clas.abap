@@ -52,11 +52,12 @@ CLASS zcl_geojson IMPLEMENTATION.
 
 
   METHOD get_json.
-    r_result = zcl_json_document=>create_with_data(
-      data = _featurecollection
-      replace_underscore = abap_true
-      replace_double_underscore = abap_true
-      )->get_json( ).
+    r_result = /ui2/cl_json=>serialize(
+        data          = _featurecollection
+        pretty_name   = /ui2/cl_json=>pretty_mode-camel_case
+        name_mappings = VALUE /ui2/cl_json=>name_mappings( ( abap = 'POPUP__CONTENT' json = 'popupContent' )
+                                                           ( abap = 'FILL__COLOR' json = 'fillColor' )
+                                                           ( abap = 'FILL__OPACITY' json = 'fillOpacity' ) ) ).
   ENDMETHOD.
 
 
